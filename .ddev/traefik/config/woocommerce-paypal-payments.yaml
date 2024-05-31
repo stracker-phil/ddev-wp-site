@@ -1,0 +1,217 @@
+#ddev-generated
+
+http:
+  routers:
+    
+    
+    woocommerce-paypal-payments-phpmyadmin-80-http:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-phpmyadmin-80-http"
+      tls: false
+      entrypoints:
+        - http-8036
+    
+    
+    
+    woocommerce-paypal-payments-playwright-8444-http:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-playwright-8444-http"
+      tls: false
+      entrypoints:
+        - http-8443
+    
+    
+    woocommerce-paypal-payments-playwright-9323-http:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-playwright-9323-http"
+      tls: false
+      entrypoints:
+        - http-9322
+    
+    
+    
+    
+    woocommerce-paypal-payments-web-80-http:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-web-80-http"
+      tls: false
+      entrypoints:
+        - http-80
+    
+    
+    woocommerce-paypal-payments-web-8025-http:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-web-8025-http"
+      tls: false
+      entrypoints:
+        - http-8025
+    
+    
+    
+    
+    
+    woocommerce-paypal-payments-phpmyadmin-80-https:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-phpmyadmin-80-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8037
+    
+    
+    
+    
+    woocommerce-paypal-payments-playwright-8444-https:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-playwright-8444-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8444
+    
+    
+    woocommerce-paypal-payments-playwright-9323-https:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-playwright-9323-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-9323
+    
+    
+    
+    
+    woocommerce-paypal-payments-web-80-https:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-web-80-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-443
+    
+    
+    woocommerce-paypal-payments-web-8025-https:
+      
+      rule: HostRegexp(`woocommerce-paypal-payments.ddev.site`, `wc-pp.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "woocommerce-paypal-payments-web-8025-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8026
+    
+    
+
+  # autodetect won't be needed in Traefik 3 https://github.com/traefik/traefik/pull/9546
+  middlewares:
+    autodetect:
+      contentType:
+        autoDetect: false
+
+  services:
+    
+    woocommerce-paypal-payments-phpmyadmin-80-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-phpmyadmin:80
+    
+    woocommerce-paypal-payments-phpmyadmin-80-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-phpmyadmin:80
+    
+    woocommerce-paypal-payments-playwright-8444-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-playwright:8444
+    
+    woocommerce-paypal-payments-playwright-9323-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-playwright:9323
+    
+    woocommerce-paypal-payments-playwright-8444-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-playwright:8444
+    
+    woocommerce-paypal-payments-playwright-9323-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-playwright:9323
+    
+    woocommerce-paypal-payments-web-80-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-web:80
+    
+    woocommerce-paypal-payments-web-8025-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-web:8025
+    
+    woocommerce-paypal-payments-web-80-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-web:80
+    
+    woocommerce-paypal-payments-web-8025-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-woocommerce-paypal-payments-web:8025
+    
+
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/woocommerce-paypal-payments.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/woocommerce-paypal-payments.key
+
