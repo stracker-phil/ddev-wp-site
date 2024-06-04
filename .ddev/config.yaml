@@ -16,6 +16,8 @@ performance_mode: mutagen
 hooks:
     pre-start:
         - exec-host: mkdir -p .ddev/wordpress/wp-content/plugins/${DDEV_PROJECT}
+upload_dirs:
+    - .ddev/wordpress/wp-content/uploads
 use_dns_when_possible: true
 composer_version: "2"
 web_environment:
@@ -29,8 +31,6 @@ web_environment:
     - WP_VERSION=6.5.3
     - WC_VERSION=8.9.1
 corepack_enable: false
-upload_dirs:
-    - ".ddev/wordpress/wp-content/uploads"
 
 # Key features of DDEV's config.yaml:
 
