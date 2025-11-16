@@ -1,11 +1,10 @@
 name: wp-test-site
-type: wordpress
+type: php
 docroot: .ddev/wordpress
 php_version: "8.0"
 webserver_type: apache-fpm
 router_http_port: "80"
 router_https_port: "443"
-xdebug_enabled: true
 additional_hostnames:
     - wp-test
 additional_fqdns: []
@@ -31,6 +30,25 @@ web_environment:
     - WP_VERSION=6.5.3
     - WC_VERSION=8.9.1
 corepack_enable: false
+
+# Command: ddev xdebug on|off
+#
+# Important for development! Needs to be configured in PhpStorm:
+# WP Root on host filesystem (for dir-mapping):
+# - project files: /var/www/html/.ddev/wordpress/wp-content/plugins/${DDEV_PROJECT}
+# - wordpress: /var/www/html/.ddev/wordpress/
+#
+# I want xdebug to be OFF by default
+xdebug_enabled: false
+
+# Command: ddev share
+#
+# My personal ngrok domain, found on my ngrok dashboard.
+# Ensures that ngrok does not use a random domain
+#
+# Note: The same domain can be used by other DDEV setups as well, but only
+#       one DDEV site can be made public via ngrok tunnel at a time.
+ngrok_args: --domain clean-precisely-mastiff.ngrok-free.app
 
 # Key features of DDEV's config.yaml:
 

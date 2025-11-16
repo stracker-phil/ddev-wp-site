@@ -5,6 +5,8 @@ show-help() {
 	echo -e "\tExample: ddev wp-cleanup -p shop_order,product"
 	echo -e "\nDelete all logs -l [wp-content path]"
 	echo -e "\tExample: ddev wp-cleanup -l uploads/wc-logs\n"
+	echo -e "\nReset the DB to a fresh installation"
+  echo -e "\tExample: ddev wp-cleanup -r\n"
 }
 
 delete-posts() {
@@ -17,9 +19,20 @@ delete-logs() {
 	rm .ddev/wordpress/wp-content/$1/*.log
 }
 
+reset-db() {
+  wp db reset --yes --path=.ddev/wordpress
+  wp core install \
+    --path=.ddev/wordpress \
+    --url=wp-test-site.ddev.site \
+    --title="Testing Cart" \
+    --admin_user=admin \
+    --admin_password=5hwnZU#aQxCK#Ld#voUIteU6 \
+    --admin_email=test@ddev.site
+}
+
 declare -i param_counter=0
 
-while getopts "p:l:h" arg; do
+while getopts "p:l:h:r" arg; do
 	case $arg in
 	p)
 		delete-posts $OPTARG
@@ -29,6 +42,10 @@ while getopts "p:l:h" arg; do
 		delete-logs $OPTARG
 		param_counter+=1
 		;;
+  r)
+    reset-db
+    param_counter+=1
+    ;;
 	h) show-help ;;
 	esac
 done
