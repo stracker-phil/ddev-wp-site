@@ -1,4 +1,5 @@
 services:
   web:
     volumes:
-      - ../wp-woocommerce-tools:/var/www/html/.ddev/wordpress/wp-content/plugins/wp-woocommerce-tools:ro
+      - ../wp-featureflags:/var/www/html/.ddev/wordpress/wp-content/plugins/wp-featureflags:ro
+      - ../wp-featureflags/config:/var/www/html/.ddev/wordpress/wp-content/wp-featureflags:ro
